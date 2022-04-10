@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Rubik:wght@400;500;600;700&display=swap');
+
 
 :root {
     --yellow: #f9ca24;
 }
 
 * {
-    font-family: 'Nunito', sans-serif;
+   font-family: 'Noto Sans TC', sans-serif;
+    font-family: 'Rubik', sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -75,6 +77,17 @@ section {
 
 }
 
+
+
+
+.resume-link{
+    font-size: 2rem;
+    text-decoration: none;
+    color: #fad550;
+}
+
+
+
 section i {
     padding: 5px;
 }
@@ -113,6 +126,7 @@ header .container .name {
 header .container .title {
     font-size: 2rem;
     color: #eee;
+    font-weight: 600;
 }
 
 
@@ -151,7 +165,9 @@ header .navbar ul li a:hover {
     display: none;
 }
 
+/**************/
 /* home */
+/**************/
 .home {
     display: flex;
     justify-content: center;
@@ -180,21 +196,31 @@ header .navbar ul li a:hover {
     line-height: 4rem;
 }
 
+.edu-intro{
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 700;
+    line-height: 4rem;
+}
 
+.introduction{
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 700;
+    line-height: 4rem;
+}
+
+
+/**************/
 /* about */
-
-
-/* about row info h3 span */
+/**************/
 .about .about-row {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
 }
 
 .about .about-row .info {
-    flex: 1 1 48rem;
+    grid-column: 1/2;
     padding: 5rem 1rem;
     padding-left: 8rem;
 }
@@ -224,8 +250,9 @@ header .navbar ul li a:hover {
 
 .about .about-row .counter {
     flex: 1 1 48rem;
+    
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
 }
 
@@ -248,24 +275,27 @@ header .navbar ul li a:hover {
 }
 
 
+.counter{
+   grid-column: 2/3;
+   grid-template-columns: 1fr 1fr;
+}
+/**************/
+/* edu-box */
+/**************/
 
 
-/* counter box */
 
+.edu-wrapper{
+    grid-column: 1/-1;
+    justify-content: center;
 
-
-/* education */
-.edu .box-container {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    color: #eee;
-    padding: 1rem 0;
-    padding-left: 3rem;
+    flex-direction: row;
+    gap:1rem
 }
 
-.edu .box-container .box {
+
+.edu-box{
     width: 27rem;
     margin: 4rem 1rem;
     padding-left: 4rem;
@@ -273,8 +303,7 @@ header .navbar ul li a:hover {
     position: relative;
 }
 
-
-.edu .box-container .box span {
+.edu-box span {
     font-size: 1.3rem;
     background-color: #222;
     color: #fff;
@@ -282,19 +311,13 @@ header .navbar ul li a:hover {
     padding: .5rem 2.5rem;
 }
 
-.edu .box-container .box h3 {
-    font-size: 2rem;
-    color: #fff;
-    padding-top: 1.5rem;
-}
-
-.edu .box-container .box h3 {
+.edu-box h3 {
     font-size: 1.4rem;
     color: #eee;
     padding: 1rem 0;
 }
 
-.edu .box-container .box i {
+.edu-box i {
     position: absolute;
     top: -1.5rem;
     left: -2.5rem;
@@ -307,9 +330,9 @@ header .navbar ul li a:hover {
     color: #fff;
     background: var(--yellow);
 }
-
-
+/**************/
 /* portfolio */
+/**************/
 .portfolio .box-container {
     display: flex;
     align-items: center;
@@ -399,6 +422,12 @@ font-weight: normal;
 padding: 1rem;
 color: var(--yellow);
 }
+.language{
+    font-size: 2rem;
+    color: #eee;
+    padding: 0 .5rem;
+}
+    
 
 .top{
     position: fixed;
@@ -481,7 +510,7 @@ color: var(--yellow);
 
 
 
-@media(max-width:477px) {
+@media(max-width:600px) {
 
     body {
         padding: 0;
@@ -495,6 +524,15 @@ color: var(--yellow);
         display: block;
     }
 
+    .introduction{
+        font-size: 1rem;
+        color: #fff;
+        font-weight: 700;
+        line-height: 2rem;
+    }
+
+
+
     .heading {
         margin: 0 3rem;
     }
@@ -503,21 +541,33 @@ color: var(--yellow);
         padding: 1rem 0 2rem 8rem;
     }
 
-    .about .about-row .counter .box {
-        width: 100%;
+    .about .about-row{
+      grid-template-columns: 1fr;
+        grid-template-rows: 1fr 15rem 1fr
+    }
+    .edu-wrapper{
+        grid-row: 2/3;
+        justify-items: center;
+        margin-left: 3rem;
     }
 
-    .about-img img {
-        display: none;
-    }
 
-    .edu .box-container .box {
-        width: 100%;
+    .about .about-row .counter {
+        grid-row: 3/4;
+        grid-column: 1/-1;
+        justify-content: center;
+        align-items: center;
+        width: 85%;
     }
+    .about .about-row .counter .exp-wrapper{
+        display: flex;
+    }
+        
 
     .portfolio .box-container .box {
         width: 100%;
     }
+
     .contact .contact-row form{
         margin: 3rem;
     }
